@@ -1,0 +1,95 @@
+#cloud-config
+
+#chpasswd:
+#  list: |
+#    root:"#Munchkin58509166"
+#  expire: False
+#ssh_pwauth: True
+
+users:
+  - name: root
+    lock_passwd: false
+    passwd: $1$SaltSalt$lzuObqAo/gWP9ETS1KfOE/
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM6dlqga9TQk0Y/MlWmabyteU1Q1cy4i+d+zNuX9WACs brynn@lenovo
+ #   ssh_pwauth: true
+
+  - name: brynn
+    groups: users, admin, sudo
+ #   ssh_import_id: 
+ #     - gh:harrisonbc
+    passwd: $1$SaltSalt$lzuObqAo/gWP9ETS1KfOE/
+    lock_passwd: false
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM6dlqga9TQk0Y/MlWmabyteU1Q1cy4i+d+zNuX9WACs brynn@lenovo
+
+  - name: ubuntu
+    groups: users, admin, sudo
+  #  ssh_import_id: 
+  #    - gh:harrisonbc
+    passwd: $1$SaltSalt$lzuObqAo/gWP9ETS1KfOE/
+    lock_passwd: false
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM6dlqga9TQk0Y/MlWmabyteU1Q1cy4i+d+zNuX9WACs brynn@lenovo
+      
+
+#network:
+#  version: 1
+#  config:
+#    - type: physical
+#      name: enp1s0
+#      subnets:
+#        - type: static
+#          address: 192.0.122.40/24
+#          gateway: 192.0.122.1
+#runcmd:
+#  - sudo resolvectl dns enp1s0 192.168.1.19 192.168.1.22
+#  - sudo resolvectl domain enp1s0 harrison.local
+#    - [SUSEConnect, -e, brynn.harrison@suse.com, -r, INTERNAL-USE-ONLY-cfd0-393f]
+
+
+
+ca_certs:
+  remove_defaults: false
+  trusted:
+    - |
+      -----BEGIN CERTIFICATE-----
+      MIIEGzCCAwOgAwIBAgIUIoFOiUuBESrEQp110tvYU/+h/yMwDQYJKoZIhvcNAQEL
+      BQAwgZwxCzAJBgNVBAYTAlVLMQ8wDQYDVQQIDAZEdXJoYW0xGTAXBgNVBAcMEFN0
+      b2NrdG9uLW9uLVRlZXMxETAPBgNVBAoMCEhhcnJpc29uMQwwCgYDVQQLDANEYWQx
+      FzAVBgNVBAMMDkJyeW5uIEhhcnJpc29uMScwJQYJKoZIhvcNAQkBFhhicnlubi5o
+      YXJyaXNvbkBnbWFpbC5jb20wHhcNMjQwMjA0MTYzOTAwWhcNMjkwMjAyMTYzOTAw
+      WjCBnDELMAkGA1UEBhMCVUsxDzANBgNVBAgMBkR1cmhhbTEZMBcGA1UEBwwQU3Rv
+      Y2t0b24tb24tVGVlczERMA8GA1UECgwISGFycmlzb24xDDAKBgNVBAsMA0RhZDEX
+      MBUGA1UEAwwOQnJ5bm4gSGFycmlzb24xJzAlBgkqhkiG9w0BCQEWGGJyeW5uLmhh
+      cnJpc29uQGdtYWlsLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+      AKZTlKW7XyqcPmpTJzPqH+OEEUpypE400JDw/m0QFGHnwJBfZN53jCBr8KuOGPyQ
+      PZ81DiVKF4giOqymcBJkyVamoiNSB2sQRgNbzMzSwsj0vHsh1EgQVPSYsb+J8Nhm
+      uDqPqMcFWyDJ90KvNWyDlpwlLrWR6V3MC4+3CmfDUxIPOWJnUmVlUwxV2nlmBcFq
+      IekXWg6OQHGLD6e2quyIDHEJhDxe3EjZWfF9xpxE4oaY9+NajxLWBsYs1AUwkZmx
+      zLtc14/vresBqWDjiM6hQpfb4aYiT6yJKO7jJ6op8iawnGv47XLu/AWIJwx85a5Y
+      cjyjEXNp/JUvqPqsv35yiZ8CAwEAAaNTMFEwHQYDVR0OBBYEFAXh4FgYeHj6HYtM
+      +S9CB4HITB4tMB8GA1UdIwQYMBaAFAXh4FgYeHj6HYtM+S9CB4HITB4tMA8GA1Ud
+      EwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAAdE3Qx7KlNQFVzLc9DfxB0Z
+      7hdBWBe2TyZiMXCtRRSNhALoSnJE/NjCR+OqVyeUMA6xu+xFDZvCjuXOZjhQws2G
+      D3cYEvFkROawDYQpXDsxkAUysdMbWlle8VWNlWQSG+K7KXq3PdwS556ClsC5JvvH
+      Tda07CnW3Rq+0ln10fkjsVFOYPMUWPpvP+AjypsRhgy127aW6b3vH2oZ4KIiv9w/
+      2t1Rmb2LASVnGIIHK9s/CxApjllIm2r4gwg84JdEWr4h1Svsy3FLnRkjOgQc9AbJ
+      /htoUIufQd3p7VQUdo4kGqZOERq8619dv8f8ZQauvAD61nEKoF+YUMAiPfPskew=
+      -----END CERTIFICATE-----
+
+keyboard:
+  layout: gb
+
+packages:
+  - qemu-guest-agent
+  - open-iscsi
+  - nfs-common
+#  - iptables
+
+package_update: true
+package_upgrade: true
