@@ -1,0 +1,64 @@
+#cloud-config
+chpasswd:
+  list: |
+    root: '#Munchkin58509166'
+  expire: False
+lock-passwd: false
+users:
+  - name: sles
+    groups: sudo
+    passwd: $6$g1WmxYga0tYE/AA1$kMqXhUr1cB0VIzf/3.4KneN76zxyVL7fbVi7kCP.Y7Xj7Wr.Ur7dHVJX/2gL5YG16uTZOht90AnxiwnCyMZ5X0
+#   hashed_passwd: $6$g1WmxYga0tYE/AA1$kMqXhUr1cB0VIzf/3.4KneN76zxyVL7fbVi7kCP.Y7Xj7Wr.Ur7dHVJX/2gL5YG16uTZOht90AnxiwnCyMZ5X0
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM6dlqga9TQk0Y/MlWmabyteU1Q1cy4i+d+zNuX9WACs brynn@lenovo
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCvYua0nb/elPcokxOlShKtEX/CwFten5W0VNt7d//B8deUfn/FNW1WKM50I+7Q9tV6Qms+jl9fWSjzGfNh7KTNIF2gtMEQsEKG4CxQTj16qtgX2psFtEvAyCJLGxYClMr8Niy6I4QmvLqPXmkbjBsDeDnR8aJjoAORWDMDOBSKoDAVu4Kl6kkH1HZf4gF8GBXu+0q0nQx/LPIr/KxaSRcXelkHGuF2S6Ty7cuGcQL5kfL9JuO0s+PMNnrIyH6iYF2KiCPbB3aw1e09C/n8b+dcuXzjaPyfcHtTfh6HkEnuUMGj5JVHDFNSLZZj98AoiC9xTEu8QZHxb+KYR6ylg6kHL1Bu5PBhvObpQKPw3105xCMDgPzzjBQ94dg+kIZs0ETFALXkpfJQigDKE/epXspOeLcEc5iNqMpxVcI6kFXRMkAMWWsT2PIMeKrOzhm889CGtDxvXzWFMeDnZjnH1uAYMoexLywYIzF1Y0umbU76dP1J2GMF2y6Nwhsk1mP3bzs= brynn@lenovo
+  - name: brynn
+    groups: sudo
+    passwd: $6$g1WmxYga0tYE/AA1$kMqXhUr1cB0VIzf/3.4KneN76zxyVL7fbVi7kCP.Y7Xj7Wr.Ur7dHVJX/2gL5YG16uTZOht90AnxiwnCyMZ5X0
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM6dlqga9TQk0Y/MlWmabyteU1Q1cy4i+d+zNuX9WACs brynn@lenovo
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCvYua0nb/elPcokxOlShKtEX/CwFten5W0VNt7d//B8deUfn/FNW1WKM50I+7Q9tV6Qms+jl9fWSjzGfNh7KTNIF2gtMEQsEKG4CxQTj16qtgX2psFtEvAyCJLGxYClMr8Niy6I4QmvLqPXmkbjBsDeDnR8aJjoAORWDMDOBSKoDAVu4Kl6kkH1HZf4gF8GBXu+0q0nQx/LPIr/KxaSRcXelkHGuF2S6Ty7cuGcQL5kfL9JuO0s+PMNnrIyH6iYF2KiCPbB3aw1e09C/n8b+dcuXzjaPyfcHtTfh6HkEnuUMGj5JVHDFNSLZZj98AoiC9xTEu8QZHxb+KYR6ylg6kHL1Bu5PBhvObpQKPw3105xCMDgPzzjBQ94dg+kIZs0ETFALXkpfJQigDKE/epXspOeLcEc5iNqMpxVcI6kFXRMkAMWWsT2PIMeKrOzhm889CGtDxvXzWFMeDnZjnH1uAYMoexLywYIzF1Y0umbU76dP1J2GMF2y6Nwhsk1mP3bzs= brynn@lenovo
+runcmd:
+    - [SUSEConnect, -e, brynn.harrison@suse.com, -r, INTERNAL-USE-ONLY-cfd0-393f]
+
+ca_certs:
+  remove_defaults: false
+  trusted:
+    - |
+      -----BEGIN CERTIFICATE-----
+      MIIEGzCCAwOgAwIBAgIUIoFOiUuBESrEQp110tvYU/+h/yMwDQYJKoZIhvcNAQEL
+      BQAwgZwxCzAJBgNVBAYTAlVLMQ8wDQYDVQQIDAZEdXJoYW0xGTAXBgNVBAcMEFN0
+      b2NrdG9uLW9uLVRlZXMxETAPBgNVBAoMCEhhcnJpc29uMQwwCgYDVQQLDANEYWQx
+      FzAVBgNVBAMMDkJyeW5uIEhhcnJpc29uMScwJQYJKoZIhvcNAQkBFhhicnlubi5o
+      YXJyaXNvbkBnbWFpbC5jb20wHhcNMjQwMjA0MTYzOTAwWhcNMjkwMjAyMTYzOTAw
+      WjCBnDELMAkGA1UEBhMCVUsxDzANBgNVBAgMBkR1cmhhbTEZMBcGA1UEBwwQU3Rv
+      Y2t0b24tb24tVGVlczERMA8GA1UECgwISGFycmlzb24xDDAKBgNVBAsMA0RhZDEX
+      MBUGA1UEAwwOQnJ5bm4gSGFycmlzb24xJzAlBgkqhkiG9w0BCQEWGGJyeW5uLmhh
+      cnJpc29uQGdtYWlsLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+      AKZTlKW7XyqcPmpTJzPqH+OEEUpypE400JDw/m0QFGHnwJBfZN53jCBr8KuOGPyQ
+      PZ81DiVKF4giOqymcBJkyVamoiNSB2sQRgNbzMzSwsj0vHsh1EgQVPSYsb+J8Nhm
+      uDqPqMcFWyDJ90KvNWyDlpwlLrWR6V3MC4+3CmfDUxIPOWJnUmVlUwxV2nlmBcFq
+      IekXWg6OQHGLD6e2quyIDHEJhDxe3EjZWfF9xpxE4oaY9+NajxLWBsYs1AUwkZmx
+      zLtc14/vresBqWDjiM6hQpfb4aYiT6yJKO7jJ6op8iawnGv47XLu/AWIJwx85a5Y
+      cjyjEXNp/JUvqPqsv35yiZ8CAwEAAaNTMFEwHQYDVR0OBBYEFAXh4FgYeHj6HYtM
+      +S9CB4HITB4tMB8GA1UdIwQYMBaAFAXh4FgYeHj6HYtM+S9CB4HITB4tMA8GA1Ud
+      EwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAAdE3Qx7KlNQFVzLc9DfxB0Z
+      7hdBWBe2TyZiMXCtRRSNhALoSnJE/NjCR+OqVyeUMA6xu+xFDZvCjuXOZjhQws2G
+      D3cYEvFkROawDYQpXDsxkAUysdMbWlle8VWNlWQSG+K7KXq3PdwS556ClsC5JvvH
+      Tda07CnW3Rq+0ln10fkjsVFOYPMUWPpvP+AjypsRhgy127aW6b3vH2oZ4KIiv9w/
+      2t1Rmb2LASVnGIIHK9s/CxApjllIm2r4gwg84JdEWr4h1Svsy3FLnRkjOgQc9AbJ
+      /htoUIufQd3p7VQUdo4kGqZOERq8619dv8f8ZQauvAD61nEKoF+YUMAiPfPskew=
+      -----END CERTIFICATE-----
+
+keyboard:
+  layout: gb
+
+packages:
+  - qemu-guest-agent
+  - iptables
+
+package_update: true

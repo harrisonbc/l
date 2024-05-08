@@ -1,0 +1,22 @@
+#cloud-config
+chpasswd:
+  list: |
+    root:'#Munchkin58509166'
+  expire: False
+users:
+  - name: sles
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM6dlqga9TQk0Y/MlWmabyteU1Q1cy4i+d+zNuX9WACs brynn@lenovo
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCvYua0nb/elPcokxOlShKtEX/CwFten5W0VNt7d//B8deUfn/FNW1WKM50I+7Q9tV6Qms+jl9fWSjzGfNh7KTNIF2gtMEQsEKG4CxQTj16qtgX2psFtEvAyCJLGxYClMr8Niy6I4QmvLqPXmkbjBsDeDnR8aJjoAORWDMDOBSKoDAVu4Kl6kkH1HZf4gF8GBXu+0q0nQx/LPIr/KxaSRcXelkHGuF2S6Ty7cuGcQL5kfL9JuO0s+PMNnrIyH6iYF2KiCPbB3aw1e09C/n8b+dcuXzjaPyfcHtTfh6HkEnuUMGj5JVHDFNSLZZj98AoiC9xTEu8QZHxb+KYR6ylg6kHL1Bu5PBhvObpQKPw3105xCMDgPzzjBQ94dg+kIZs0ETFALXkpfJQigDKE/epXspOeLcEc5iNqMpxVcI6kFXRMkAMWWsT2PIMeKrOzhm889CGtDxvXzWFMeDnZjnH1uAYMoexLywYIzF1Y0umbU76dP1J2GMF2y6Nwhsk1mP3bzs= brynn@lenovo
+  - name: brynn
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM6dlqga9TQk0Y/MlWmabyteU1Q1cy4i+d+zNuX9WACs brynn@lenovo
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCvYua0nb/elPcokxOlShKtEX/CwFten5W0VNt7d//B8deUfn/FNW1WKM50I+7Q9tV6Qms+jl9fWSjzGfNh7KTNIF2gtMEQsEKG4CxQTj16qtgX2psFtEvAyCJLGxYClMr8Niy6I4QmvLqPXmkbjBsDeDnR8aJjoAORWDMDOBSKoDAVu4Kl6kkH1HZf4gF8GBXu+0q0nQx/LPIr/KxaSRcXelkHGuF2S6Ty7cuGcQL5kfL9JuO0s+PMNnrIyH6iYF2KiCPbB3aw1e09C/n8b+dcuXzjaPyfcHtTfh6HkEnuUMGj5JVHDFNSLZZj98AoiC9xTEu8QZHxb+KYR6ylg6kHL1Bu5PBhvObpQKPw3105xCMDgPzzjBQ94dg+kIZs0ETFALXkpfJQigDKE/epXspOeLcEc5iNqMpxVcI6kFXRMkAMWWsT2PIMeKrOzhm889CGtDxvXzWFMeDnZjnH1uAYMoexLywYIzF1Y0umbU76dP1J2GMF2y6Nwhsk1mP3bzs= brynn@lenovo
+runcmd:
+  - touch /test.txt
